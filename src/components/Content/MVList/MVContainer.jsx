@@ -52,7 +52,7 @@ const MVContainer = () => {
     const getApiMv = async () => {
       const res = await axios
         .get(
-          "https://music-player-pink.vercel.app/api/listMV?id=IWZ9Z08I&page=1&count=15"
+          "https://musictes.vercel.app/api/listMV?id=IWZ9Z08I&page=1&count=15"
         )
         .then((res) => {
           dispatch(setMvListVietNam(res.data.data.items));
