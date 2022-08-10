@@ -45,7 +45,7 @@ const Slide = ({ rectangle, triangle, circle, square }) => {
     setArtist(artistUrl);
 
     await axios
-      .get(`https://music-player-pink.vercel.app/api/artist?name=${artistUrl}`)
+      .get(`https://musictes.vercel.app/api/artist?name=${artistUrl}`)
       .then(({ data }) => {
         dispatch(setArtist(data.data));
       })
