@@ -12,7 +12,7 @@ const RadioPage = () => {
   useEffect(() => {
     const getApiRadio = async () => {
       await axios
-        .get("https://music-player-pink.vercel.app/api/home?page=2")
+        .get("https://musictes.vercel.app/api/home?page=2")
         .then((res) => {
           dispatch(renderLiveStream(res.data.data.items[0].items));
           dispatch(renderPlaylist(res.data.data.items[1].items));
