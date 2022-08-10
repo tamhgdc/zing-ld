@@ -1,0 +1,167 @@
+@use "./variable.scss";
+@use "./grid.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: "Roboto", sans-serif;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+.App {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-layout);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 1920px auto;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+.btn {
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  font-weight: 200;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn--m:hover,
+.btn--s:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+@mixin btnCustom($width, $fontSize, $color, $backgroundHover) {
+  width: $width !important;
+  height: $width !important;
+  font-size: $fontSize !important;
+  margin: 0 4px;
+  color: $color;
+  &:hover {
+    background-color: $backgroundHover;
+  }
+}
+@mixin userSelect {
+  user-select: none; /* Standard syntax */
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+.btn--s {
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
+}
+.btn--m {
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+}
+.btn--l {
+  font-size: 35px;
+}
+#audio {
+  display: none !important;
+}
+.skeleton__tableItem {
+  width: 100;
+  height: 62px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+
+  cursor: pointer;
+  animation: skeleton-loading 2s linear infinite;
+}
+.skeleton {
+  max-width: 300px;
+  height: 170px;
+  margin: auto;
+  border-radius: 8px;
+  cursor: pointer;
+  animation: skeleton-loading 2s linear infinite;
+}
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: var(--color-text-primary);
+  animation: spin-loading 1s linear infinite;
+}
+@keyframes spin-loading {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes skeleton-loading {
+  0% {
+    background-color: var(--color-alpha-bg);
+  }
+  80% {
+    background-color: var(--color-player);
+  }
+  100% {
+    background-color: var(--color-footer);
+  }
+}
+.number1 {
+  color: transparent !important;
+  -webkit-text-stroke: 1px #4a90e2 !important;
+}
+.number2 {
+  color: transparent !important;
+  -webkit-text-stroke: 1px #50e3c2 !important;
+}
+.number3 {
+  color: transparent !important;
+  -webkit-text-stroke: 1px #e35050 !important;
+}
+
+.mt-3 {
+  margin-top: 3rem;
+}
+.mt-4 {
+  margin-top: 4rem;
+}
+.mt-5 {
+  margin-top: 5rem;
+}
+.mt-10 {
+  margin-top: 10rem;
+}
+.trackVertical {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: none;
+  z-index: 20;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease visibility 1s linear;
+}
+.thumbVertical {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 40px;
+  border-radius: 30px;
+}
+
+// tablet
+@media (min-width: 740px) and (max-width: 1023px) {
+}
+// phone
+@media (max-width: 739px) {
+}

@@ -1,0 +1,224 @@
+@use "../App/App.scss";
+.aside {
+  position: relative;
+  width: var(--width-sidebar);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-sidebar);
+  transition: all 0.3s ease-out;
+  z-index: 20;
+  @include App.userSelect;
+}
+.logo {
+  height: 6.5rem;
+  display: flex;
+  align-items: center;
+  margin-left: 28px;
+  overflow: hidden;
+}
+.link {
+  display: block;
+  @include App.userSelect;
+
+  position: relative;
+
+  &::after {
+    content: "mp3";
+    display: block;
+    position: absolute;
+    color: var(--color-text-primary);
+    width: 37px;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    font-weight: 400;
+    opacity: 0.7;
+  }
+}
+.linkTablet {
+  display: none;
+  @include App.userSelect;
+
+  position: relative;
+}
+.img {
+  width: 100%;
+  height: 30px;
+  line-height: 6.5rem;
+  color: var(--color-text-primary);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.sidebar {
+  flex: 1;
+}
+.sidebarList {
+  text-decoration: none;
+  padding-left: 0;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  list-style-type: none;
+}
+.sidebarSubnav {
+  border-top: 2px solid var(--color-border);
+}
+.container {
+  max-height: 20rem;
+  margin-bottom: 14rem;
+  overscroll-behavior: contain;
+  will-change: scroll-position;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border);
+
+  &:hover {
+    overflow: auto;
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+  }
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 20px;
+    background-color: #fafafa;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  }
+}
+.block {
+  width: 100%;
+}
+.vipBlock {
+  width: 190px;
+  margin: 10px 0 10px 20px;
+  background-image: linear-gradient(117deg, #5a4be7, #c86dd7 102%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 15px;
+}
+.vipDes {
+  font-size: 12px;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.8;
+  margin: 10px 0;
+}
+.vipBtn {
+  background-color: #ffdb00;
+  border-color: #ffdb00;
+  color: #333;
+  border-radius: 999px;
+  width: 159px;
+  height: 30px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.titleLibrary {
+  font-size: 12px;
+  color: var(--color-text-primary);
+  font-weight: 700;
+  margin: 30px 0 10px 25px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.seeMore,
+.seeLess {
+  display: none;
+}
+// tablet
+@media (min-width: 740px) and (max-width: 1023px) {
+  .aside {
+    background-color: var(--color-layout);
+  }
+  .asideMove {
+    width: var(--width-sidebar-tablet);
+  }
+  .logoMove {
+    height: 6rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .linkMove,
+  .block,
+  .titleLibrary {
+    display: none;
+  }
+  .linkTabletMove {
+    display: block;
+  }
+  .imgMove {
+    height: 45px;
+  }
+  .container {
+    max-height: 45rem;
+  }
+  .iconSeeMore,
+  .iconSeeLess {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-item-hover);
+    color: var(--color-text-primary);
+    font-size: 30px;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .iconSeeMore {
+    transform: translateX(-50%);
+    transition: transform 0.3s ease-out;
+  }
+  .iconSeeLess {
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out;
+  }
+  .sidebar {
+    flex: initial;
+  }
+}
+// phone
+@media (max-width: 739px) {
+  .aside {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: var(--height-sidebar-mobile);
+    z-index: 160;
+    background-color: var(--color-layout);
+  }
+  .sidebarList {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+  }
+  .sidebarSubnav {
+    display: none;
+  }
+  .logo {
+    display: none;
+  }
+  .sidebarList {
+    margin: 0;
+  }
+  .iconSeeMore,
+  .iconSeeLess {
+    display: none;
+  }
+}
