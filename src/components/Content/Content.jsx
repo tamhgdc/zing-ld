@@ -32,7 +32,7 @@ const Content = ({ handleScroll }, ref) => {
     // get api explore page
     const getPlaylistSong = async () => {
       await axios
-        .get("https://music-player-pink.vercel.app/api/home?page=1")
+        .get("https://musictes.vercel.app/api/home?page=1")
         .then((res) => {
           const titles = {
             title1: res.data.data.items[3].title,
@@ -61,7 +61,7 @@ const Content = ({ handleScroll }, ref) => {
     // get api charHome (zingchart)
     const getZingChart = async () => {
       await axios
-        .get("https://music-player-pink.vercel.app/api/chart-home")
+        .get("https://musictes.vercel.app/api/chart-home")
         .then((res) => {
           console.log(res.data.data);
           dispatch(showTopChart(res.data.data.RTChart.items));
@@ -72,7 +72,7 @@ const Content = ({ handleScroll }, ref) => {
     // get api nhac moi
     const getApiNhacMoiPage = async () => {
       await axios
-        .get("https://music-player-pink.vercel.app/api/home?page=4")
+        .get("https://musictes.vercel.app/api/home?page=4")
         .then((res) => {
           dispatch(showNewSong(res.data.data.items[0].items));
         })
