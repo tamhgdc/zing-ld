@@ -7,7 +7,7 @@ const useFetchDataHook = (keyword) => {
   const dispatch = useDispatch();
   const handleSearch = async () => {
     const { data } = await axios.get(
-      "hhttps://musictes.vercel.app/api/search?keyword=${keyword}"
+      `hhttps://musictes.vercel.app/api/search?keyword=${keyword}`
     );
     dispatch(setSearch(data.data));
   };
