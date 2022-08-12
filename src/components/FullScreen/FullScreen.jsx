@@ -37,7 +37,7 @@ const FullScreen = () => {
   useEffect(() => {
     const getLyrics = async () => {
       await axios
-        .get(`https://musictes.vercel.app/api/lyric?id=${songId}`)
+        .get("https://musictes.vercel.app/api/lyric?id=${songId}")
         .then((res) => {
           dispatch(renderLyrics(res.data.data.sentences));
         })
