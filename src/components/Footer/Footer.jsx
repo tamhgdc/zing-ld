@@ -57,7 +57,7 @@ const Footer = () => {
   useEffect(() => {
     const render = async () => {
       await axios
-        .get("https://musictes.vercel.app/api/song?id=${songId}")
+        .get(`https://musictes.vercel.app/api/song?id=${songId}`)
         .then((res) => {
           // get value in array 128, vip
           const data = Object.values(res.data.data);
